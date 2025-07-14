@@ -10,6 +10,7 @@ interface FlowDesignerProps {
   onUpdateComponent: (id: string, updates: Partial<FlowComponent>) => void;
   onDeleteComponent: (id: string) => void;
   onConnectComponents: (fromId: string, toId: string) => void;
+  onAddComponent: (type: FlowComponent['type'], position: { x: number; y: number }) => void;
 }
 
 export const FlowDesigner: React.FC<FlowDesignerProps> = ({
@@ -18,7 +19,8 @@ export const FlowDesigner: React.FC<FlowDesignerProps> = ({
   onSelectComponent,
   onUpdateComponent,
   onDeleteComponent,
-  onConnectComponents
+  onConnectComponents,
+  onAddComponent
 }) => {
   const canvasRef = useRef<HTMLDivElement>(null);
   const [draggedComponent, setDraggedComponent] = useState<string | null>(null);
@@ -36,11 +38,8 @@ export const FlowDesigner: React.FC<FlowDesignerProps> = ({
         y: e.clientY - rect.top - 40
       };
       
-      // Import the function from App component
-      const addComponent = (window as any).addComponent;
-      if (addComponent) {
-        addComponent(componentType, position);
-      }
+      // Use the onAddComponent prop that's passed from the parent
+      onAddComponent(componentType, position);
     }
   };
 

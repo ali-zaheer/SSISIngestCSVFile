@@ -67,6 +67,7 @@ function App() {
                 onUpdateComponent={updateComponent}
                 onDeleteComponent={deleteComponent}
                 onConnectComponents={connectComponents}
+                onAddComponent={addComponent}
               />
             </div>
             
