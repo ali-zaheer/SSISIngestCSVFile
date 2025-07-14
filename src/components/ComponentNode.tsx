@@ -1,16 +1,5 @@
 import React from 'react';
-import { 
-  Database, 
-  FileText, 
-  Transform, 
-  GitBranch, 
-  Search, 
-  BarChart3,
-  Download,
-  Upload,
-  Trash2,
-  Circle
-} from 'lucide-react';
+import { Database, FileText, Train as Transform, GitBranch, Search, BarChart3, Download, Upload, Trash2, Circle } from 'lucide-react';
 import { FlowComponent } from '../types/FlowTypes';
 
 interface ComponentNodeProps {
